@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# check if version of webpacker-react is same of ./bin/yarn add webpacker-react
 gem 'webpacker-react'
 
 # Use ActiveStorage variant
