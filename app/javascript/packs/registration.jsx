@@ -3,10 +3,33 @@ import WebpackerReact from 'webpacker-react';
 // import ReactDOM from 'react-dom';
 // se transpila el componente Login, porque se esta importando dentro un archivo de packs
 import { Login } from 'components/registration/login';
+import { SignUp } from 'components/registration/signup'	;
 
 class Registration extends React.Component{
+
+	constructor(props){
+		super(props);
+		this.state = {
+			showLogin: true
+		}
+
+		this.toggle = this.toggle.bind(this);
+	}
+
+	toggle(e){
+		// para q no envie request al servidor
+		e.preventDefault();
+		this.setState({
+			showLogin: !this.state.showLogin
+		})
+	}
+
 	render(){
-		return(<Login />)
+		return(
+			<div>
+				{ this.state.showLogin ? <Login toggle={this.toggle} /> : <SignUp toggle={this.toggle}/>}
+			</div>
+		);
 	}
 }
 
